@@ -22,7 +22,7 @@ export const postUser = async (name, email, phone, pass) => {
             return error
         }
     } catch (error) {
-        let err = "No se pudo crear el usuario"
+        let err = error
         return err
     }  
 }
