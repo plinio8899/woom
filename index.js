@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import { PrismaClient } from "@prisma/client"
 import bodyParser from "body-parser";
 import usersRoute from "./routes/users.routes.js"
+import authRoute from "./routes/auth.routes.js"
 import cors from 'cors'
 
 const db = new PrismaClient();
@@ -28,6 +29,7 @@ server.get("/", (req, res ) => {
     }
 })
 server.use('/users', usersRoute)
+server.use('/auth', authRoute)
 
 
 server.listen(PORT || 3000, () => {

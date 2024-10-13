@@ -20,6 +20,7 @@ model Usuario {
   numero  String
   pass    String
   ubi     String?
+  act     Boolean @default(false)
   paseos  Paseo[]  @relation("UsuarioPaseos")
 }
 
@@ -43,4 +44,9 @@ model Paseo {
   idPaseador  Int
   usuario     Usuario  @relation(fields: [idUsuario], references: [id], name: "UsuarioPaseos")
   idUsuario   Int
+}
+
+model RegisterCode {
+  id          Int      @id @default(autoincrement())
+  code        Int
 }
